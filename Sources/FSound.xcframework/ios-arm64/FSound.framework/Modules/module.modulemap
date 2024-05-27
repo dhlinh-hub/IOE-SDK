@@ -1,0 +1,11 @@
+framework module FSound {
+  umbrella header "FSound.h"
+  export *
+
+  module * { export * }
+}
+
+module FSound.Swift {
+  header "FSound-Swift.h"
+  requires objc
+}

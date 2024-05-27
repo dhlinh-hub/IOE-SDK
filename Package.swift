@@ -14,10 +14,10 @@ let package = Package(
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
-//        .binaryTarget(name: "FSound", path: "Sources/FSound.xcframework"),
+        .binaryTarget(name: "FSound", path: "Sources/FSound.xcframework"),
 
         .target(
-            name: "ioe-sdk"),
+            name: "ioe-sdk", dependencies: ["FSound"]),
         .testTarget(
             name: "ioe-sdkTests",
             dependencies: ["ioe-sdk"]),
