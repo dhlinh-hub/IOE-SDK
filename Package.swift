@@ -14,12 +14,18 @@ let package = Package(
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
+
         .binaryTarget(name: "FSound", path: "Sources/FSound.xcframework"),
+        .binaryTarget(name: "TensorFlowLiteC", path: "Sources/TensorFlowLiteC.xcframework"),
+        .binaryTarget(name: "TensorFlowLiteSelectTfOps", path: "Sources/TensorFlowLiteSelectTfOps.xcframework"),
 
         .target(
-            name: "ioe-sdk", dependencies: ["FSound"]),
+            name: "ioe-sdk", 
+            dependencies: ["FSound", "TensorFlowLiteC", "TensorFlowLiteSelectTfOps"]
+        ),
         .testTarget(
             name: "ioe-sdkTests",
             dependencies: ["ioe-sdk"]),
-    ]
+    ],
+    swiftLanguageVersions: [.v5]
 )
