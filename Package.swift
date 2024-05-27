@@ -21,11 +21,14 @@ let package = Package(
 
         .target(
             name: "ioe-sdk", 
-            dependencies: ["FSound", "TensorFlowLiteC", "TensorFlowLiteSelectTfOps"]
+            dependencies: ["FSound", "TensorFlowLiteC", "TensorFlowLiteSelectTfOps"],
+            linkerSettings: [.unsafeFlags([""])]
         ),
         .testTarget(
             name: "ioe-sdkTests",
-            dependencies: ["ioe-sdk"]),
+            dependencies: ["ioe-sdk"],
+            exclude: []
+        ),
     ],
     swiftLanguageVersions: [.v5]
 )
